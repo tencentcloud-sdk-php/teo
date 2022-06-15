@@ -18,33 +18,36 @@ namespace TencentCloud\Teo\V20220106\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeSecurityPolicyManagedRulesId返回参数结构体
+ * DescribeTopL7AnalysisData返回参数结构体
  *
- * @method integer getTotal() 获取返回总数
- * @method void setTotal(integer $Total) 设置返回总数
- * @method array getRules() 获取门神规则
- * @method void setRules(array $Rules) 设置门神规则
- * @method integer getCount() 获取返回总数
- * @method void setCount(integer $Count) 设置返回总数
+ * @method array getData() 获取top详细数据
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setData(array $Data) 设置top详细数据
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getType() 获取查询维度
+ * @method void setType(string $Type) 设置查询维度
+ * @method string getMetricName() 获取查询指标
+ * @method void setMetricName(string $MetricName) 设置查询指标
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
+class DescribeTopL7AnalysisDataResponse extends AbstractModel
 {
     /**
-     * @var integer 返回总数
+     * @var array top详细数据
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Total;
+    public $Data;
 
     /**
-     * @var array 门神规则
+     * @var string 查询维度
      */
-    public $Rules;
+    public $Type;
 
     /**
-     * @var integer 返回总数
+     * @var string 查询指标
      */
-    public $Count;
+    public $MetricName;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +55,10 @@ class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Total 返回总数
-     * @param array $Rules 门神规则
-     * @param integer $Count 返回总数
+     * @param array $Data top详细数据
+注意：此字段可能返回 null，表示取不到有效值。
+     * @param string $Type 查询维度
+     * @param string $MetricName 查询指标
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,21 +74,21 @@ class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
-            $this->Total = $param["Total"];
-        }
-
-        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
-            $this->Rules = [];
-            foreach ($param["Rules"] as $key => $value){
-                $obj = new ManagedRule();
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new TopDataRecord();
                 $obj->deserialize($value);
-                array_push($this->Rules, $obj);
+                array_push($this->Data, $obj);
             }
         }
 
-        if (array_key_exists("Count",$param) and $param["Count"] !== null) {
-            $this->Count = $param["Count"];
+        if (array_key_exists("Type",$param) and $param["Type"] !== null) {
+            $this->Type = $param["Type"];
+        }
+
+        if (array_key_exists("MetricName",$param) and $param["MetricName"] !== null) {
+            $this->MetricName = $param["MetricName"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

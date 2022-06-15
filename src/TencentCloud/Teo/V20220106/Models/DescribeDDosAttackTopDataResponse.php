@@ -18,33 +18,33 @@ namespace TencentCloud\Teo\V20220106\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeSecurityPolicyManagedRulesId返回参数结构体
+ * DescribeDDosAttackTopData返回参数结构体
  *
- * @method integer getTotal() 获取返回总数
- * @method void setTotal(integer $Total) 设置返回总数
- * @method array getRules() 获取门神规则
- * @method void setRules(array $Rules) 设置门神规则
- * @method integer getCount() 获取返回总数
- * @method void setCount(integer $Count) 设置返回总数
+ * @method array getData() 获取topn数据
+ * @method void setData(array $Data) 设置topn数据
+ * @method integer getStatus() 获取状态，1:失败，0:成功
+ * @method void setStatus(integer $Status) 设置状态，1:失败，0:成功
+ * @method string getMsg() 获取返回消息
+ * @method void setMsg(string $Msg) 设置返回消息
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
+class DescribeDDosAttackTopDataResponse extends AbstractModel
 {
     /**
-     * @var integer 返回总数
+     * @var array topn数据
      */
-    public $Total;
+    public $Data;
 
     /**
-     * @var array 门神规则
+     * @var integer 状态，1:失败，0:成功
      */
-    public $Rules;
+    public $Status;
 
     /**
-     * @var integer 返回总数
+     * @var string 返回消息
      */
-    public $Count;
+    public $Msg;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -52,9 +52,9 @@ class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $Total 返回总数
-     * @param array $Rules 门神规则
-     * @param integer $Count 返回总数
+     * @param array $Data topn数据
+     * @param integer $Status 状态，1:失败，0:成功
+     * @param string $Msg 返回消息
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -70,21 +70,21 @@ class DescribeSecurityPolicyManagedRulesIdResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Total",$param) and $param["Total"] !== null) {
-            $this->Total = $param["Total"];
-        }
-
-        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
-            $this->Rules = [];
-            foreach ($param["Rules"] as $key => $value){
-                $obj = new ManagedRule();
+        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
+            $this->Data = [];
+            foreach ($param["Data"] as $key => $value){
+                $obj = new TopNEntry();
                 $obj->deserialize($value);
-                array_push($this->Rules, $obj);
+                array_push($this->Data, $obj);
             }
         }
 
-        if (array_key_exists("Count",$param) and $param["Count"] !== null) {
-            $this->Count = $param["Count"];
+        if (array_key_exists("Status",$param) and $param["Status"] !== null) {
+            $this->Status = $param["Status"];
+        }
+
+        if (array_key_exists("Msg",$param) and $param["Msg"] !== null) {
+            $this->Msg = $param["Msg"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
