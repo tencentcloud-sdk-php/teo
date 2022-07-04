@@ -18,51 +18,35 @@ namespace TencentCloud\Teo\V20220106\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * RateLimit配置
+ * IP黑白名单及IP区域控制配置
  *
  * @method string getSwitch() 获取开关
+注意：此字段可能返回 null，表示取不到有效值。
  * @method void setSwitch(string $Switch) 设置开关
- * @method array getUserRules() 获取用户规则
- * @method void setUserRules(array $UserRules) 设置用户规则
- * @method RateLimitTemplate getTemplate() 获取默认模板
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setTemplate(RateLimitTemplate $Template) 设置默认模板
+ * @method array getRules() 获取[]
 注意：此字段可能返回 null，表示取不到有效值。
- * @method RateLimitIntelligence getIntelligence() 获取智能客户端过滤
-注意：此字段可能返回 null，表示取不到有效值。
- * @method void setIntelligence(RateLimitIntelligence $Intelligence) 设置智能客户端过滤
+ * @method void setRules(array $Rules) 设置[]
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class RateLimitConfig extends AbstractModel
+class IpTableConfig extends AbstractModel
 {
     /**
      * @var string 开关
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Switch;
 
     /**
-     * @var array 用户规则
-     */
-    public $UserRules;
-
-    /**
-     * @var RateLimitTemplate 默认模板
+     * @var array []
 注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Template;
-
-    /**
-     * @var RateLimitIntelligence 智能客户端过滤
-注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $Intelligence;
+    public $Rules;
 
     /**
      * @param string $Switch 开关
-     * @param array $UserRules 用户规则
-     * @param RateLimitTemplate $Template 默认模板
 注意：此字段可能返回 null，表示取不到有效值。
-     * @param RateLimitIntelligence $Intelligence 智能客户端过滤
+     * @param array $Rules []
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -82,23 +66,13 @@ class RateLimitConfig extends AbstractModel
             $this->Switch = $param["Switch"];
         }
 
-        if (array_key_exists("UserRules",$param) and $param["UserRules"] !== null) {
-            $this->UserRules = [];
-            foreach ($param["UserRules"] as $key => $value){
-                $obj = new RateLimitUserRule();
+        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
+            $this->Rules = [];
+            foreach ($param["Rules"] as $key => $value){
+                $obj = new IpTableRule();
                 $obj->deserialize($value);
-                array_push($this->UserRules, $obj);
+                array_push($this->Rules, $obj);
             }
-        }
-
-        if (array_key_exists("Template",$param) and $param["Template"] !== null) {
-            $this->Template = new RateLimitTemplate();
-            $this->Template->deserialize($param["Template"]);
-        }
-
-        if (array_key_exists("Intelligence",$param) and $param["Intelligence"] !== null) {
-            $this->Intelligence = new RateLimitIntelligence();
-            $this->Intelligence->deserialize($param["Intelligence"]);
         }
     }
 }
