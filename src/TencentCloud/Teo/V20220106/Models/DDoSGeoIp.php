@@ -20,9 +20,9 @@ use TencentCloud\Common\AbstractModel;
 /**
  * DDoS地域封禁
  *
- * @method array getRegionId() 获取地域信息
+ * @method array getRegionId() 获取地域信息，ID参考接口DescribeSecurityPolicyRegions
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setRegionId(array $RegionId) 设置地域信息
+ * @method void setRegionId(array $RegionId) 设置地域信息，ID参考接口DescribeSecurityPolicyRegions
 注意：此字段可能返回 null，表示取不到有效值。
  * @method string getSwitch() 获取区域封禁清空标识
 注意：此字段可能返回 null，表示取不到有效值。
@@ -32,7 +32,7 @@ use TencentCloud\Common\AbstractModel;
 class DDoSGeoIp extends AbstractModel
 {
     /**
-     * @var array 地域信息
+     * @var array 地域信息，ID参考接口DescribeSecurityPolicyRegions
 注意：此字段可能返回 null，表示取不到有效值。
      */
     public $RegionId;
@@ -44,7 +44,7 @@ class DDoSGeoIp extends AbstractModel
     public $Switch;
 
     /**
-     * @param array $RegionId 地域信息
+     * @param array $RegionId 地域信息，ID参考接口DescribeSecurityPolicyRegions
 注意：此字段可能返回 null，表示取不到有效值。
      * @param string $Switch 区域封禁清空标识
 注意：此字段可能返回 null，表示取不到有效值。
