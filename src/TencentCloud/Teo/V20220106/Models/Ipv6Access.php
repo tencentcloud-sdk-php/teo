@@ -18,20 +18,28 @@ namespace TencentCloud\Teo\V20220106\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeZoneSetting请求参数结构体
+ * Ipv6访问配置
  *
- * @method string getZoneId() 获取站点ID。
- * @method void setZoneId(string $ZoneId) 设置站点ID。
+ * @method string getSwitch() 获取Ipv6访问功能配置，取值有：
+<li>on：开启Ipv6访问功能；</li>
+<li>off：关闭Ipv6访问功能。</li>
+ * @method void setSwitch(string $Switch) 设置Ipv6访问功能配置，取值有：
+<li>on：开启Ipv6访问功能；</li>
+<li>off：关闭Ipv6访问功能。</li>
  */
-class DescribeZoneSettingRequest extends AbstractModel
+class Ipv6Access extends AbstractModel
 {
     /**
-     * @var string 站点ID。
+     * @var string Ipv6访问功能配置，取值有：
+<li>on：开启Ipv6访问功能；</li>
+<li>off：关闭Ipv6访问功能。</li>
      */
-    public $ZoneId;
+    public $Switch;
 
     /**
-     * @param string $ZoneId 站点ID。
+     * @param string $Switch Ipv6访问功能配置，取值有：
+<li>on：开启Ipv6访问功能；</li>
+<li>off：关闭Ipv6访问功能。</li>
      */
     function __construct()
     {
@@ -46,8 +54,8 @@ class DescribeZoneSettingRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
-            $this->ZoneId = $param["ZoneId"];
+        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
+            $this->Switch = $param["Switch"];
         }
     }
 }
