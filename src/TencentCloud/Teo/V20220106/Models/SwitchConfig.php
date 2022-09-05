@@ -20,18 +20,26 @@ use TencentCloud\Common\AbstractModel;
 /**
  * 功能总开关
  *
- * @method string getWebSwitch() 获取Web类型的安全总开关：Web基础防护，自定义规则，速率限制
- * @method void setWebSwitch(string $WebSwitch) 设置Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+ * @method string getWebSwitch() 获取Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
+ * @method void setWebSwitch(string $WebSwitch) 设置Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
  */
 class SwitchConfig extends AbstractModel
 {
     /**
-     * @var string Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+     * @var string Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
      */
     public $WebSwitch;
 
     /**
-     * @param string $WebSwitch Web类型的安全总开关：Web基础防护，自定义规则，速率限制
+     * @param string $WebSwitch Web类型的安全总开关生效范围，Waf，自定义规则，速率限制。
+1. on 开启
+2. off 关闭
      */
     function __construct()
     {
