@@ -18,24 +18,17 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 规则引擎规则项，Conditions 数组内多个项的关系为 或，内层 Conditions 列表内多个项的关系为 且。
+ * 嵌套规则信息。
  *
- * @method array getActions() 获取执行的功能。
- * @method void setActions(array $Actions) 设置执行的功能。
  * @method array getConditions() 获取执行功能判断条件。
 注意：满足该数组内任意一项条件，功能即可执行。
  * @method void setConditions(array $Conditions) 设置执行功能判断条件。
 注意：满足该数组内任意一项条件，功能即可执行。
- * @method array getSubRules() 获取嵌套规则。
- * @method void setSubRules(array $SubRules) 设置嵌套规则。
+ * @method array getActions() 获取执行的功能。
+ * @method void setActions(array $Actions) 设置执行的功能。
  */
-class Rule extends AbstractModel
+class SubRule extends AbstractModel
 {
-    /**
-     * @var array 执行的功能。
-     */
-    public $Actions;
-
     /**
      * @var array 执行功能判断条件。
 注意：满足该数组内任意一项条件，功能即可执行。
@@ -43,15 +36,14 @@ class Rule extends AbstractModel
     public $Conditions;
 
     /**
-     * @var array 嵌套规则。
+     * @var array 执行的功能。
      */
-    public $SubRules;
+    public $Actions;
 
     /**
-     * @param array $Actions 执行的功能。
      * @param array $Conditions 执行功能判断条件。
 注意：满足该数组内任意一项条件，功能即可执行。
-     * @param array $SubRules 嵌套规则。
+     * @param array $Actions 执行的功能。
      */
     function __construct()
     {
@@ -66,15 +58,6 @@ class Rule extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Actions",$param) and $param["Actions"] !== null) {
-            $this->Actions = [];
-            foreach ($param["Actions"] as $key => $value){
-                $obj = new Action();
-                $obj->deserialize($value);
-                array_push($this->Actions, $obj);
-            }
-        }
-
         if (array_key_exists("Conditions",$param) and $param["Conditions"] !== null) {
             $this->Conditions = [];
             foreach ($param["Conditions"] as $key => $value){
@@ -84,12 +67,12 @@ class Rule extends AbstractModel
             }
         }
 
-        if (array_key_exists("SubRules",$param) and $param["SubRules"] !== null) {
-            $this->SubRules = [];
-            foreach ($param["SubRules"] as $key => $value){
-                $obj = new SubRuleItem();
+        if (array_key_exists("Actions",$param) and $param["Actions"] !== null) {
+            $this->Actions = [];
+            foreach ($param["Actions"] as $key => $value){
+                $obj = new Action();
                 $obj->deserialize($value);
-                array_push($this->SubRules, $obj);
+                array_push($this->Actions, $obj);
             }
         }
     }
