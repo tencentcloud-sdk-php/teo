@@ -18,26 +18,26 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * Http2回源配置
+ * 中国大陆加速优化配置。
  *
- * @method string getSwitch() 获取http2 回源配置开关，取值有：
+ * @method string getSwitch() 获取是否开启中国大陆加速优化配置，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
- * @method void setSwitch(string $Switch) 设置http2 回源配置开关，取值有：
+ * @method void setSwitch(string $Switch) 设置是否开启中国大陆加速优化配置，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
  */
-class UpstreamHttp2 extends AbstractModel
+class AccelerateMainland extends AbstractModel
 {
     /**
-     * @var string http2 回源配置开关，取值有：
+     * @var string 是否开启中国大陆加速优化配置，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
      */
     public $Switch;
 
     /**
-     * @param string $Switch http2 回源配置开关，取值有：
+     * @param string $Switch 是否开启中国大陆加速优化配置，取值有：
 <li>on：开启；</li>
 <li>off：关闭。</li>
      */

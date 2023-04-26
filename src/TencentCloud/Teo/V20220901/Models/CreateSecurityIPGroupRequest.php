@@ -18,28 +18,28 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * Http2回源配置
+ * CreateSecurityIPGroup请求参数结构体
  *
- * @method string getSwitch() 获取http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
- * @method void setSwitch(string $Switch) 设置http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+ * @method string getZoneId() 获取站点 Id。
+ * @method void setZoneId(string $ZoneId) 设置站点 Id。
+ * @method IPGroup getIPGroup() 获取IP 组信息。
+ * @method void setIPGroup(IPGroup $IPGroup) 设置IP 组信息。
  */
-class UpstreamHttp2 extends AbstractModel
+class CreateSecurityIPGroupRequest extends AbstractModel
 {
     /**
-     * @var string http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+     * @var string 站点 Id。
      */
-    public $Switch;
+    public $ZoneId;
 
     /**
-     * @param string $Switch http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+     * @var IPGroup IP 组信息。
+     */
+    public $IPGroup;
+
+    /**
+     * @param string $ZoneId 站点 Id。
+     * @param IPGroup $IPGroup IP 组信息。
      */
     function __construct()
     {
@@ -54,8 +54,13 @@ class UpstreamHttp2 extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
-            $this->Switch = $param["Switch"];
+        if (array_key_exists("ZoneId",$param) and $param["ZoneId"] !== null) {
+            $this->ZoneId = $param["ZoneId"];
+        }
+
+        if (array_key_exists("IPGroup",$param) and $param["IPGroup"] !== null) {
+            $this->IPGroup = new IPGroup();
+            $this->IPGroup->deserialize($param["IPGroup"]);
         }
     }
 }

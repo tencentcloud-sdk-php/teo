@@ -18,28 +18,20 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * Http2回源配置
+ * DeleteSecurityIPGroup返回参数结构体
  *
- * @method string getSwitch() 获取http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
- * @method void setSwitch(string $Switch) 设置http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+ * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
+ * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class UpstreamHttp2 extends AbstractModel
+class DeleteSecurityIPGroupResponse extends AbstractModel
 {
     /**
-     * @var string http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+     * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
-    public $Switch;
+    public $RequestId;
 
     /**
-     * @param string $Switch http2 回源配置开关，取值有：
-<li>on：开启；</li>
-<li>off：关闭。</li>
+     * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
     {
@@ -54,8 +46,8 @@ class UpstreamHttp2 extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
-            $this->Switch = $param["Switch"];
+        if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {
+            $this->RequestId = $param["RequestId"];
         }
     }
 }
