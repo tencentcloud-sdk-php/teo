@@ -20,15 +20,15 @@ use TencentCloud\Common\AbstractModel;
 /**
  * CreateSharedCNAME返回参数结构体
  *
- * @method string getSharedCNAME() 获取共享 CNAME。格式为：<自定义前缀>+<ZoneId中的12位随机字符串>+"share.dnse[0-5].com"。
- * @method void setSharedCNAME(string $SharedCNAME) 设置共享 CNAME。格式为：<自定义前缀>+<ZoneId中的12位随机字符串>+"share.dnse[0-5].com"。
+ * @method string getSharedCNAME() 获取共享 CNAME。格式为：`<自定义前缀>+<ZoneId中的12位随机字符串>+share.dnse[0-5].com`。
+ * @method void setSharedCNAME(string $SharedCNAME) 设置共享 CNAME。格式为：`<自定义前缀>+<ZoneId中的12位随机字符串>+share.dnse[0-5].com`。
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
 class CreateSharedCNAMEResponse extends AbstractModel
 {
     /**
-     * @var string 共享 CNAME。格式为：<自定义前缀>+<ZoneId中的12位随机字符串>+"share.dnse[0-5].com"。
+     * @var string 共享 CNAME。格式为：`<自定义前缀>+<ZoneId中的12位随机字符串>+share.dnse[0-5].com`。
      */
     public $SharedCNAME;
 
@@ -38,7 +38,7 @@ class CreateSharedCNAMEResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param string $SharedCNAME 共享 CNAME。格式为：<自定义前缀>+<ZoneId中的12位随机字符串>+"share.dnse[0-5].com"。
+     * @param string $SharedCNAME 共享 CNAME。格式为：`<自定义前缀>+<ZoneId中的12位随机字符串>+share.dnse[0-5].com`。
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
