@@ -14,30 +14,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace TencentCloud\Teo\V20220106\Models;
+namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribePrefetchTasks返回参数结构体
+ * DescribeSecurityIPGroupInfo返回参数结构体
  *
- * @method integer getTotalCount() 获取该查询条件总共条目数
- * @method void setTotalCount(integer $TotalCount) 设置该查询条件总共条目数
- * @method array getTasks() 获取任务结果列表
- * @method void setTasks(array $Tasks) 设置任务结果列表
+ * @method integer getTotalCount() 获取返回的满足条件的 IP 组数量。
+ * @method void setTotalCount(integer $TotalCount) 设置返回的满足条件的 IP 组数量。
+ * @method array getIPGroups() 获取IP 组的详细配置信息。包含每个 IP 组的 ID 、名称和 IP /网段列表信息。
+ * @method void setIPGroups(array $IPGroups) 设置IP 组的详细配置信息。包含每个 IP 组的 ID 、名称和 IP /网段列表信息。
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribePrefetchTasksResponse extends AbstractModel
+class DescribeSecurityIPGroupInfoResponse extends AbstractModel
 {
     /**
-     * @var integer 该查询条件总共条目数
+     * @var integer 返回的满足条件的 IP 组数量。
      */
     public $TotalCount;
 
     /**
-     * @var array 任务结果列表
+     * @var array IP 组的详细配置信息。包含每个 IP 组的 ID 、名称和 IP /网段列表信息。
      */
-    public $Tasks;
+    public $IPGroups;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class DescribePrefetchTasksResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount 该查询条件总共条目数
-     * @param array $Tasks 任务结果列表
+     * @param integer $TotalCount 返回的满足条件的 IP 组数量。
+     * @param array $IPGroups IP 组的详细配置信息。包含每个 IP 组的 ID 、名称和 IP /网段列表信息。
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -66,12 +66,12 @@ class DescribePrefetchTasksResponse extends AbstractModel
             $this->TotalCount = $param["TotalCount"];
         }
 
-        if (array_key_exists("Tasks",$param) and $param["Tasks"] !== null) {
-            $this->Tasks = [];
-            foreach ($param["Tasks"] as $key => $value){
-                $obj = new Task();
+        if (array_key_exists("IPGroups",$param) and $param["IPGroups"] !== null) {
+            $this->IPGroups = [];
+            foreach ($param["IPGroups"] as $key => $value){
+                $obj = new IPGroup();
                 $obj->deserialize($value);
-                array_push($this->Tasks, $obj);
+                array_push($this->IPGroups, $obj);
             }
         }
 
