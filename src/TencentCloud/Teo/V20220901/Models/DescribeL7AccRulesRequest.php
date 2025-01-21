@@ -18,16 +18,20 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRules请求参数结构体
+ * DescribeL7AccRules请求参数结构体
  *
  * @method string getZoneId() 获取站点 ID。
  * @method void setZoneId(string $ZoneId) 设置站点 ID。
- * @method array getFilters() 获取过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
+ * @method array getFilters() 获取过滤条件，Filters.Values 的上限为 20，不填写此参数时默认按顺序返回站点下的规则。详细的过滤条件如下：
 <li>rule-id：按照规则 ID 进行过滤。</li>
- * @method void setFilters(array $Filters) 设置过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
+ * @method void setFilters(array $Filters) 设置过滤条件，Filters.Values 的上限为 20，不填写此参数时默认按顺序返回站点下的规则。详细的过滤条件如下：
 <li>rule-id：按照规则 ID 进行过滤。</li>
+ * @method integer getLimit() 获取分页查询限制数目，默认值：20，上限：1000。
+ * @method void setLimit(integer $Limit) 设置分页查询限制数目，默认值：20，上限：1000。
+ * @method integer getOffset() 获取分页查询偏移量，默认为 0。
+ * @method void setOffset(integer $Offset) 设置分页查询偏移量，默认为 0。
  */
-class DescribeRulesRequest extends AbstractModel
+class DescribeL7AccRulesRequest extends AbstractModel
 {
     /**
      * @var string 站点 ID。
@@ -35,15 +39,27 @@ class DescribeRulesRequest extends AbstractModel
     public $ZoneId;
 
     /**
-     * @var array 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
+     * @var array 过滤条件，Filters.Values 的上限为 20，不填写此参数时默认按顺序返回站点下的规则。详细的过滤条件如下：
 <li>rule-id：按照规则 ID 进行过滤。</li>
      */
     public $Filters;
 
     /**
+     * @var integer 分页查询限制数目，默认值：20，上限：1000。
+     */
+    public $Limit;
+
+    /**
+     * @var integer 分页查询偏移量，默认为 0。
+     */
+    public $Offset;
+
+    /**
      * @param string $ZoneId 站点 ID。
-     * @param array $Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
+     * @param array $Filters 过滤条件，Filters.Values 的上限为 20，不填写此参数时默认按顺序返回站点下的规则。详细的过滤条件如下：
 <li>rule-id：按照规则 ID 进行过滤。</li>
+     * @param integer $Limit 分页查询限制数目，默认值：20，上限：1000。
+     * @param integer $Offset 分页查询偏移量，默认为 0。
      */
     function __construct()
     {
@@ -69,6 +85,14 @@ class DescribeRulesRequest extends AbstractModel
                 $obj->deserialize($value);
                 array_push($this->Filters, $obj);
             }
+        }
+
+        if (array_key_exists("Limit",$param) and $param["Limit"] !== null) {
+            $this->Limit = $param["Limit"];
+        }
+
+        if (array_key_exists("Offset",$param) and $param["Offset"] !== null) {
+            $this->Offset = $param["Offset"];
         }
     }
 }

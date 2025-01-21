@@ -18,16 +18,14 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRules请求参数结构体
+ * ModifyL7AccRule请求参数结构体
  *
  * @method string getZoneId() 获取站点 ID。
  * @method void setZoneId(string $ZoneId) 设置站点 ID。
- * @method array getFilters() 获取过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
- * @method void setFilters(array $Filters) 设置过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+ * @method RuleEngineItem getRule() 获取需要修改的规则。您可以先通过 DescribeL7AccRules 接口来获取需要修改的规则的 Ruleid，然后传入修改后的规则内容，原规则内容会被覆盖式更新。
+ * @method void setRule(RuleEngineItem $Rule) 设置需要修改的规则。您可以先通过 DescribeL7AccRules 接口来获取需要修改的规则的 Ruleid，然后传入修改后的规则内容，原规则内容会被覆盖式更新。
  */
-class DescribeRulesRequest extends AbstractModel
+class ModifyL7AccRuleRequest extends AbstractModel
 {
     /**
      * @var string 站点 ID。
@@ -35,15 +33,13 @@ class DescribeRulesRequest extends AbstractModel
     public $ZoneId;
 
     /**
-     * @var array 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @var RuleEngineItem 需要修改的规则。您可以先通过 DescribeL7AccRules 接口来获取需要修改的规则的 Ruleid，然后传入修改后的规则内容，原规则内容会被覆盖式更新。
      */
-    public $Filters;
+    public $Rule;
 
     /**
      * @param string $ZoneId 站点 ID。
-     * @param array $Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @param RuleEngineItem $Rule 需要修改的规则。您可以先通过 DescribeL7AccRules 接口来获取需要修改的规则的 Ruleid，然后传入修改后的规则内容，原规则内容会被覆盖式更新。
      */
     function __construct()
     {
@@ -62,13 +58,9 @@ class DescribeRulesRequest extends AbstractModel
             $this->ZoneId = $param["ZoneId"];
         }
 
-        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
-            $this->Filters = [];
-            foreach ($param["Filters"] as $key => $value){
-                $obj = new Filter();
-                $obj->deserialize($value);
-                array_push($this->Filters, $obj);
-            }
+        if (array_key_exists("Rule",$param) and $param["Rule"] !== null) {
+            $this->Rule = new RuleEngineItem();
+            $this->Rule->deserialize($param["Rule"]);
         }
     }
 }

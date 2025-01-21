@@ -18,16 +18,14 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRules请求参数结构体
+ * CreateL7AccRules请求参数结构体
  *
  * @method string getZoneId() 获取站点 ID。
  * @method void setZoneId(string $ZoneId) 设置站点 ID。
- * @method array getFilters() 获取过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
- * @method void setFilters(array $Filters) 设置过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+ * @method array getRules() 获取规则内容。
+ * @method void setRules(array $Rules) 设置规则内容。
  */
-class DescribeRulesRequest extends AbstractModel
+class CreateL7AccRulesRequest extends AbstractModel
 {
     /**
      * @var string 站点 ID。
@@ -35,15 +33,13 @@ class DescribeRulesRequest extends AbstractModel
     public $ZoneId;
 
     /**
-     * @var array 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @var array 规则内容。
      */
-    public $Filters;
+    public $Rules;
 
     /**
      * @param string $ZoneId 站点 ID。
-     * @param array $Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @param array $Rules 规则内容。
      */
     function __construct()
     {
@@ -62,12 +58,12 @@ class DescribeRulesRequest extends AbstractModel
             $this->ZoneId = $param["ZoneId"];
         }
 
-        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
-            $this->Filters = [];
-            foreach ($param["Filters"] as $key => $value){
-                $obj = new Filter();
+        if (array_key_exists("Rules",$param) and $param["Rules"] !== null) {
+            $this->Rules = [];
+            foreach ($param["Rules"] as $key => $value){
+                $obj = new RuleEngineItem();
                 $obj->deserialize($value);
-                array_push($this->Filters, $obj);
+                array_push($this->Rules, $obj);
             }
         }
     }

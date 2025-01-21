@@ -18,16 +18,16 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeRules请求参数结构体
+ * ModifyL7AccSetting请求参数结构体
  *
  * @method string getZoneId() 获取站点 ID。
  * @method void setZoneId(string $ZoneId) 设置站点 ID。
- * @method array getFilters() 获取过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
- * @method void setFilters(array $Filters) 设置过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+ * @method ZoneConfig getZoneConfig() 获取站点加速全局配置，该参数中的配置会对站点下的所有域名生效。您只需直接修改所需的配置，未传入的其他配置将保持原有状态。
+
+
+ * @method void setZoneConfig(ZoneConfig $ZoneConfig) 设置站点加速全局配置，该参数中的配置会对站点下的所有域名生效。您只需直接修改所需的配置，未传入的其他配置将保持原有状态。
  */
-class DescribeRulesRequest extends AbstractModel
+class ModifyL7AccSettingRequest extends AbstractModel
 {
     /**
      * @var string 站点 ID。
@@ -35,15 +35,15 @@ class DescribeRulesRequest extends AbstractModel
     public $ZoneId;
 
     /**
-     * @var array 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @var ZoneConfig 站点加速全局配置，该参数中的配置会对站点下的所有域名生效。您只需直接修改所需的配置，未传入的其他配置将保持原有状态。
+
+
      */
-    public $Filters;
+    public $ZoneConfig;
 
     /**
      * @param string $ZoneId 站点 ID。
-     * @param array $Filters 过滤条件，Filters.Values的上限为20。详细的过滤条件如下：
-<li>rule-id：按照规则 ID 进行过滤。</li>
+     * @param ZoneConfig $ZoneConfig 站点加速全局配置，该参数中的配置会对站点下的所有域名生效。您只需直接修改所需的配置，未传入的其他配置将保持原有状态。
      */
     function __construct()
     {
@@ -62,13 +62,9 @@ class DescribeRulesRequest extends AbstractModel
             $this->ZoneId = $param["ZoneId"];
         }
 
-        if (array_key_exists("Filters",$param) and $param["Filters"] !== null) {
-            $this->Filters = [];
-            foreach ($param["Filters"] as $key => $value){
-                $obj = new Filter();
-                $obj->deserialize($value);
-                array_push($this->Filters, $obj);
-            }
+        if (array_key_exists("ZoneConfig",$param) and $param["ZoneConfig"] !== null) {
+            $this->ZoneConfig = new ZoneConfig();
+            $this->ZoneConfig->deserialize($param["ZoneConfig"]);
         }
     }
 }
