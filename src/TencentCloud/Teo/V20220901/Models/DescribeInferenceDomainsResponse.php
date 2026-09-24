@@ -18,26 +18,26 @@ namespace TencentCloud\Teo\V20220901\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DescribeAccelerationDomains返回参数结构体
+ * DescribeInferenceDomains返回参数结构体
  *
- * @method integer getTotalCount() 获取<p>符合查询条件的加速域名个数。</p>
- * @method void setTotalCount(integer $TotalCount) 设置<p>符合查询条件的加速域名个数。</p>
- * @method array getAccelerationDomains() 获取<p>符合查询条件的所有加速域名的信息。</p>
- * @method void setAccelerationDomains(array $AccelerationDomains) 设置<p>符合查询条件的所有加速域名的信息。</p>
+ * @method integer getTotalCount() 获取<p>推理服务域名总数。</p>
+ * @method void setTotalCount(integer $TotalCount) 设置<p>推理服务域名总数。</p>
+ * @method array getDomains() 获取<p>推理服务域名列表。</p>
+ * @method void setDomains(array $Domains) 设置<p>推理服务域名列表。</p>
  * @method string getRequestId() 获取唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
  */
-class DescribeAccelerationDomainsResponse extends AbstractModel
+class DescribeInferenceDomainsResponse extends AbstractModel
 {
     /**
-     * @var integer <p>符合查询条件的加速域名个数。</p>
+     * @var integer <p>推理服务域名总数。</p>
      */
     public $TotalCount;
 
     /**
-     * @var array <p>符合查询条件的所有加速域名的信息。</p>
+     * @var array <p>推理服务域名列表。</p>
      */
-    public $AccelerationDomains;
+    public $Domains;
 
     /**
      * @var string 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +45,8 @@ class DescribeAccelerationDomainsResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param integer $TotalCount <p>符合查询条件的加速域名个数。</p>
-     * @param array $AccelerationDomains <p>符合查询条件的所有加速域名的信息。</p>
+     * @param integer $TotalCount <p>推理服务域名总数。</p>
+     * @param array $Domains <p>推理服务域名列表。</p>
      * @param string $RequestId 唯一请求 ID，由服务端生成，每次请求都会返回（若请求因其他原因未能抵达服务端，则该次请求不会获得 RequestId）。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -66,12 +66,12 @@ class DescribeAccelerationDomainsResponse extends AbstractModel
             $this->TotalCount = $param["TotalCount"];
         }
 
-        if (array_key_exists("AccelerationDomains",$param) and $param["AccelerationDomains"] !== null) {
-            $this->AccelerationDomains = [];
-            foreach ($param["AccelerationDomains"] as $key => $value){
-                $obj = new AccelerationDomain();
+        if (array_key_exists("Domains",$param) and $param["Domains"] !== null) {
+            $this->Domains = [];
+            foreach ($param["Domains"] as $key => $value){
+                $obj = new InferenceDomain();
                 $obj->deserialize($value);
-                array_push($this->AccelerationDomains, $obj);
+                array_push($this->Domains, $obj);
             }
         }
 
